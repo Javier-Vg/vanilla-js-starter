@@ -2,28 +2,43 @@
 
 import {extraerDatos} from "./agregarDatos"
 
-let divTasks = document.querySelector(".grupo")
-
+let divTasks = document.querySelector(".grupo");
 
 async function getTask() {
+
     try { 
       const response = await fetch('http://localhost:3000/api/task');
       const data = await response.json();
+     // divTasks.innerHTML = JSON.stringify(data)
     
+      return data
     } catch (error) { 
       console.error(error);
     }
+
+
 }
 
-getTask();
 
-let agregar = document.getElementById("agregar")
+getTask()
+
+async function foo() {
+  let nueva = await getTask();
+  console.log(nueva);
+}
+
+foo();
 
 
-agregar.addEventListener("click", function () {
 
-  
-  
+
+let agregarBtn = document.getElementById("agregar")
+//Evento para llamar a la funciones:
+agregarBtn.addEventListener("click", function () {
+
+  let taskFuncion = extraerDatos();
+  console.log(taskFuncion)
+
   const postTask= async () => {
     try {
         const response = await fetch('http://localhost:3000/api/task', {
@@ -33,7 +48,7 @@ agregar.addEventListener("click", function () {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            task: inputAgregarTarea.value,
+            task: taskFuncion,
             status: "Realizada"
           })
         });
