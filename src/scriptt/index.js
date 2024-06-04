@@ -1,43 +1,14 @@
 // Inserte el código aquí
 
-import {extraerDatos} from "./agregarDatos"
+import {extraerDatos} from "./agregarDatos";
+import {foo} from "./mostrarDatos";
 
-let divTasks = document.querySelector(".grupo");
-
-async function getTask() {
-
-    try { 
-      const response = await fetch('http://localhost:3000/api/task');
-      const data = await response.json();
-     // divTasks.innerHTML = JSON.stringify(data)
-    
-      return data
-    } catch (error) { 
-      console.error(error);
-    }
-
-
-}
-
-
-getTask()
-
-async function foo() {
-  let nueva = await getTask();
-  console.log(nueva);
-}
-
-foo();
-
-
-
-
-let agregarBtn = document.getElementById("agregar")
+let agregarBtn = document.getElementById("agregar");
 //Evento para llamar a la funciones:
 agregarBtn.addEventListener("click", function () {
 
   let taskFuncion = extraerDatos();
-  console.log(taskFuncion)
+  console.log(taskFuncion);
 
   const postTask= async () => {
     try {
@@ -48,12 +19,13 @@ agregarBtn.addEventListener("click", function () {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            task: taskFuncion,
-            status: "Realizada"
+            task: taskFuncion[0],
+            area: taskFuncion[1]
           })
         });
         const data = await response.json();
         console.log(data);
+
     }catch(error) {
       console.log(error)
     } 
@@ -61,12 +33,7 @@ agregarBtn.addEventListener("click", function () {
   postTask();
 });
 
-export {getTask}
-
-
-
-
-
-
+//Se llama a la funcion importada desde el otro archivo.
+foo();
 
 

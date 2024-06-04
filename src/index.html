@@ -3,23 +3,36 @@
 <head>
 	<title>Ejemplo básico</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="/src/estilos/style.css">
+	<link rel="stylesheet" href="../estilos/style.css">
 </head>
 <body>
-	<h1>Tareas por hacer</h1>
 	<div class="divCore">
+		<h1 class="titulo">Tareas por hacer</h1>
 	
-		<input id="inputAgregarTarea" placeholder="Ingresar tarea" type="text" required>
-		<br>
-		<br>
-		<button class="btn1" id="agregar">Agregar</button>
-		<br>
-		<br>
-		<br>
-		<br>
+		<div class="flexbox">
+			<div>
+				<input id="inputAgregarTarea" placeholder="Ingresar tarea" type="text" required>
+				<br>
+				<br>
+				<input id="inputAgregarArea" placeholder="Area de trabajo de la task:" type="text" required>
+				<br>
+				<br>
+				<button class="btn1" id="agregar">Agregar</button>
+				<br>
+			</div>
+			<div>
+				<div class="grid">
+					<div><h2 style="text-align: center; font-size: 30px;">Tareas Completadas</h2></div>
+					<div><div class="contador">0</div></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="grupo">No hay tareas</div>
 	</div>
-	<h2>Taskkkks</h2>
-	<div class="grupo">dddd</div>
+
+	
+	
 
 	<script type="module" src="./scriptt/index.js"></script>
 
