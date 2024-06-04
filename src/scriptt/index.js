@@ -1,16 +1,15 @@
 // Inserte el código aquí
-
 import { extraerDatos } from "./agregarDatos";
 import { elementos } from "./agregarElementos";
+import { Recargar } from "./ElementosRecargaPage";
 
 let agregarBtn = document.getElementById("agregar");
 //Evento para llamar a la funciones:
 agregarBtn.addEventListener("click", function () {
 
   let taskFuncion = extraerDatos();
-  console.log(taskFuncion);
 
-  const postTask= async () => {
+  async function postTask() {
     try {
         const response = await fetch('http://localhost:3000/api/task', {
 
@@ -23,17 +22,20 @@ agregarBtn.addEventListener("click", function () {
             area: taskFuncion[1]
           })
         });
-        const data = await response.json();
-
+        
     }catch(error) {
-      console.log(error)
+      console.log(error);
     } 
   }
+
   postTask();
 
   elementos();
 
 });
+
+console.log("Deberia de actualizar....");
+Recargar();
 
 
 

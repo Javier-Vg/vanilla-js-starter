@@ -1,8 +1,11 @@
+
 import { getTask } from "./mostrarDatos";
 
 function elementos() {
 
-    //Se llama a la funcion importada desde otra clase
+    //Esto hace que se actualize cuando integre otro dato, no me agrega el anterior 
+    getTask();
+
     async function Esperar() {
 
         let divTasks = document.querySelector(".grupo");
@@ -10,12 +13,13 @@ function elementos() {
         let TaskInfo = await getTask();
 
         //Esto es para extraer del json (api) la task y la area.
-        for (const key in TaskInfo) {
-            let task = TaskInfo[key].task;
-            let area = TaskInfo[key].area;
-            console.log(JSON.stringify(task));
-            console.log(JSON.stringify(area));
-        
+        let ultimoIndice = TaskInfo.pop();
+
+        //Itera solo el ultimo elemtno del JSOn, y agrega el elemento:
+        for (const key in ultimoIndice) {
+            let task = ultimoIndice.task;
+            let area = ultimoIndice.area;
+            
             // Crear el contenedor
             let container = document.createElement("div");
             container.className = "containerTarea";
@@ -28,7 +32,7 @@ function elementos() {
             // Crear el texto
             let taskTexto = document.createElement("p");
             taskTexto.className = "taskTexto";
-            taskTexto.innerText = task+"<br>"+area;
+            taskTexto.innerHTML = task+"<br>"+area;
 
             // Crear el iconoo
             let icono = document.createElement("img");
@@ -39,11 +43,14 @@ function elementos() {
             container.appendChild(checkbox);
             container.appendChild(taskTexto);
             container.appendChild(icono);
+
             divTasks.appendChild(container);
 
-            //Ojo con esto
-        }        
-        //return TaskInfo;
+            //  console.log(JSON.stringify(task));
+            //  console.log(JSON.stringify(area));
+            
+            break;
+        }
     }
     Esperar();
 };
