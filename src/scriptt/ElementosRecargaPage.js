@@ -1,7 +1,7 @@
 import { getTask } from "./mostrarDatos";
 
 async function Recargar() {
-
+    
     let divTasks = document.querySelector(".grupo");
     let tasks = await getTask();
     
