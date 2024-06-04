@@ -2,6 +2,7 @@
 
 import {extraerDatos} from "./agregarDatos";
 import {foo} from "./mostrarDatos";
+import { elementos } from "./agregarElementos";
 
 let agregarBtn = document.getElementById("agregar");
 //Evento para llamar a la funciones:
@@ -31,6 +32,8 @@ agregarBtn.addEventListener("click", function () {
     } 
   }
   postTask();
+
+  elementos();
 });
 
 //Se llama a la funcion importada desde el otro archivo.
