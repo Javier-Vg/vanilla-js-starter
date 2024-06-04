@@ -1,7 +1,6 @@
 // Inserte el código aquí
 
-import {extraerDatos} from "./agregarDatos";
-import {foo} from "./mostrarDatos";
+import { extraerDatos } from "./agregarDatos";
 import { elementos } from "./agregarElementos";
 
 let agregarBtn = document.getElementById("agregar");
@@ -25,7 +24,6 @@ agregarBtn.addEventListener("click", function () {
           })
         });
         const data = await response.json();
-        console.log(data);
 
     }catch(error) {
       console.log(error)
@@ -34,9 +32,9 @@ agregarBtn.addEventListener("click", function () {
   postTask();
 
   elementos();
+
 });
 
-//Se llama a la funcion importada desde el otro archivo.
-foo();
+
 
 
