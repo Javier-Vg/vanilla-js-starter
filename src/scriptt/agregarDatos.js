@@ -1,5 +1,5 @@
 function extraerDatos() {
-    document.getElementById("NoTasksTitulo").style.display = "none"
+    //document.getElementById("NoTasksTitulo").style.display = "none";
 
     let input = document.getElementById("inputAgregarTarea").value;
     let area = document.getElementById("inputAgregarArea").value;

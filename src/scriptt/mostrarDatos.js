@@ -1,4 +1,3 @@
-
 //Funcion que extrae a la api (json), metodo get:
 async function getTask() {
 

@@ -1,5 +1,6 @@
 
 import { getTask } from "./mostrarDatos";
+import { Recargar } from "./ElementosRecargaPage";
 
 function elementos() {
 
@@ -12,6 +13,8 @@ function elementos() {
 
         let TaskInfo = await getTask();
 
+       
+
         //Esto es para extraer del json (api) la task y la area.
         let ultimoIndice = TaskInfo.pop();
 
@@ -21,7 +24,7 @@ function elementos() {
             let area = ultimoIndice.area;
             
             // Crear el contenedor
-            let container = document.createElement("div");
+            let container = document.createElement("div");     
             container.className = "containerTarea";
 
             // Crear el checkbox
@@ -44,7 +47,10 @@ function elementos() {
             container.appendChild(taskTexto);
             container.appendChild(icono);
 
+
             divTasks.appendChild(container);
+
+            Recargar()
 
             //  console.log(JSON.stringify(task));
             //  console.log(JSON.stringify(area));
