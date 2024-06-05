@@ -32,10 +32,15 @@ agregarBtn.addEventListener("click", function () {
 
   elementos();
 
+  
+  
 });
 
-console.log("Deberia de actualizar....");
+
+
+//Recupera los elementos de la pagina
 Recargar();
+
 
 
 

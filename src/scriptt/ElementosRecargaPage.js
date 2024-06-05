@@ -1,7 +1,9 @@
 import { getTask } from "./mostrarDatos";
 
+let acum = 0;
 async function Recargar() {
-    
+
+
     let divTasks = document.querySelector(".grupo");
     let tasks = await getTask();
     
@@ -34,8 +36,16 @@ async function Recargar() {
         container.appendChild(icono);
 
         divTasks.appendChild(container);
-        console.log("aaAAA")
+ 
     };
+    let checks = document.querySelector(".checkbox");
+    checks.addEventListener("click", function() {
+        
+        let contador = document.querySelector(".contador");
+        acum++
+        contador.innerHTML = acum;
+        
+    })
 };
 
 export {Recargar}
