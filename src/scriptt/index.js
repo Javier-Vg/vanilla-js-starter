@@ -13,6 +13,7 @@ agregarBtn.addEventListener("click", function () {
   let taskFuncion = extraerDatos();
 
   async function postTask() {
+    
     try {
         const response = await fetch('http://localhost:3000/api/task', {
 
@@ -60,10 +61,8 @@ async function reconocerIcono() {
    };
 };
 
-
 //Esto trae los elementos y para que sean globales
 reconocerIcono();
-
 
 // let elementoClick = document.querySelectorAll(".icono");
 // console.log(elementoClick);

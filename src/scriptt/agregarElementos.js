@@ -1,19 +1,19 @@
 
 import { getTask } from "./mostrarDatos";
-import { Recargar } from "./ElementosRecargaPage";
+import { extraerDatos } from "./agregarDatos";
+
+//Esto hace que se actualize cuando integre otro dato, no me agrega el anterior 
+//getTask();
 
 function elementos() {
-
-    //Esto hace que se actualize cuando integre otro dato, no me agrega el anterior 
-    getTask();
-
+    //ESPORTA LOS INPUTSSS
     async function Esperar() {
 
         let divTasks = document.querySelector(".grupo");
 
         let TaskInfo = await getTask();
 
-       
+        console.log(TaskInfo);
 
         //Esto es para extraer del json (api) la task y la area.
         let ultimoIndice = TaskInfo.pop();
@@ -22,6 +22,8 @@ function elementos() {
         for (const key in ultimoIndice) {
             let task = ultimoIndice.task;
             let area = ultimoIndice.area;
+
+            console.log(task)
             
             // Crear el contenedor
             let container = document.createElement("div");     
@@ -47,10 +49,9 @@ function elementos() {
             container.appendChild(taskTexto);
             container.appendChild(icono);
 
-
             divTasks.appendChild(container);
 
-            Recargar()
+            //Recargar()
 
             //  console.log(JSON.stringify(task));
             //  console.log(JSON.stringify(area));
