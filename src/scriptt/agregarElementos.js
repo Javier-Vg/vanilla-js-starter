@@ -30,6 +30,7 @@ function elementos() {
             checkbox.type = "checkbox";
             checkbox.className = "checkbox";
 
+
             // Crear el texto
             let taskTexto = document.createElement("p");
             taskTexto.className = "taskTexto";

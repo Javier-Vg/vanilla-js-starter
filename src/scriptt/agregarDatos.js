@@ -7,10 +7,9 @@ function extraerDatos() {
         let array = [input,area];
         return array;
     }else{
-        alert("Llene los espacios.")
+        alert("Llene los espacios.");
         return false;
     }
-    
 };
 
 export {extraerDatos}

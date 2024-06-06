@@ -3,6 +3,8 @@ import { extraerDatos } from "./agregarDatos";
 import { elementos } from "./agregarElementos";
 import { Recargar } from "./ElementosRecargaPage";
 import { deleteTask } from "./eliminarTask";
+import { getTask } from "./mostrarDatos";
+import { putTask } from "./ElementosRecargaPage";
 
 //let verificadorAñadirElementos = false;
 
@@ -30,7 +32,8 @@ agregarBtn.addEventListener("click", function () {
             },
             body: JSON.stringify({
               task: taskFuncion[0],
-              area: taskFuncion[1]
+              area: taskFuncion[1],
+              status: false
             })
           });
           
@@ -40,6 +43,7 @@ agregarBtn.addEventListener("click", function () {
     };
 
     postTask();
+
   };
 
   elementos();
@@ -67,32 +71,61 @@ async function reconocerIcono() {
 
      elementoClick[index].addEventListener("click", deleteTask);
    };
+
+    //Recorre los inputs clickeados del HTML y escoge el clickeado desde la pagina
+  
+    let elementoInput = document.querySelectorAll(".checkbox");
+    console.log(elementoInput);
+ 
+    for (let index = 0; index < elementoInput.length; index++) {
+ 
+      elementoInput[index].addEventListener("click", putTask);
+    };
 };
 
 //Esto trae los elementos y para que sean globales
 reconocerIcono();
 
-
 //let inputs = document.querySelectorAll(".checkbox");
-async function inputsCheckss() {
-  let inputsGrupo = await Recargar();
-  inputsGrupo.forEach(element => {
-    if (element.checked = true) {
-      console.log("ssssssssssss")
-      
-    }
+// async function devolverCheks() {
+//   let checkss = await getTask();
+//   console.log(checkss);
+//   checkss.forEach(element => {
+    
+//     console.log(element.status);
+//     if (checkss.status == true) {
+//       //console.log(" khe?")
+//       element.checked = true;
+//     }
+//   });
+// }
 
-  });
-}
+// devolverCheks();
 
-
+//Esto es para que el form no pueda agregar 2 veces un elemento:
 let form = document.getElementById("formulario")
 form.addEventListener("submit", function() {
-  console.log("salvatierra pura mierda")
+  console.log("8");
 })
 
 
-inputsCheckss();
+// if (tasks[key].status == false) {
+//   tasks[key].status = true;
+//   checkBox.checked = true;
+
+// }else{
+//   // tasks[key].status = false;
+//   // document.querySelector(".checkbox").checked = false;
+//   console.log("esto es el else del check")
+// };
+
+async function jaja() {
+  let kk = await getTask();
+  console.log(kk)
+  
+}
+jaja();
+
 
 export {reconocerIcono}
 
