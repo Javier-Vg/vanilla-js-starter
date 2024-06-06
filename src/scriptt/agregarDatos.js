@@ -3,8 +3,14 @@ function extraerDatos() {
 
     let input = document.getElementById("inputAgregarTarea").value;
     let area = document.getElementById("inputAgregarArea").value;
-    let array = [input,area];
-    return array;
+    if (input != "") {
+        let array = [input,area];
+        return array;
+    }else{
+        alert("Llene los espacios.")
+        return false;
+    }
+    
 };
 
 export {extraerDatos}

@@ -5,9 +5,11 @@ let acum = 0;
 let arrayIconos  = [];
 
 async function Recargar() {
-    let divTasks = document.querySelector(".grupo");
 
+    //Hace que la pagina borre lo que tenia antes de ser actualizada, y agrega los que ya 
+    let divTasks = document.querySelector(".grupo");
     if (divTasks.innerHTML != "") {
+        console.log("xdddd")
         divTasks.innerHTML = "";
     }else{
 
@@ -23,9 +25,10 @@ async function Recargar() {
             container.className = "containerTarea";
     
             // Crear el checkbox
-            let checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.className = "checkbox";
+            let checkBox = document.createElement("input");
+            checkBox.type = "checkbox";
+            checkBox.className = "checkbox";
+            //checkBox.checked = true;
     
             // Crear el texto
             let taskTexto = document.createElement("p");
@@ -40,7 +43,7 @@ async function Recargar() {
             icono.src = "https://thumbs.dreamstime.com/b/icono-rojo-de-la-l%C3%ADnea-papelera-reciclaje-en-fondo-blanco-ilustraci%C3%B3n-vectores-estilo-plano-171177844.jpg";
     
             // Añadir los elementos al contenedor
-            container.appendChild(checkbox);
+            container.appendChild(checkBox);
             container.appendChild(taskTexto);
             container.appendChild(icono);
     
@@ -48,14 +51,17 @@ async function Recargar() {
             
             //Añade los elementos donde estan añadidos los iconos:
             arrayIconos.push(icono);
-        };
 
+        };
+        
     };
 
+    
     //reconocerIcono()
-
+    
     //Retorna los elementos de los iconos, que son las 
     //imagenes para que me lo reconzaca el for que los recorre.
+    
     return arrayIconos;
 };
 

@@ -1,27 +1,23 @@
 
-import { getTask } from "./mostrarDatos";
 import { extraerDatos } from "./agregarDatos";
 
-//Esto hace que se actualize cuando integre otro dato, no me agrega el anterior 
+//Esto hace que se actualize cuando integre otro dato, no me agrega el anterior
 //getTask();
-
+let inputsChecks = [];
 function elementos() {
     //ESPORTA LOS INPUTSSS
     async function Esperar() {
 
-        let divTasks = document.querySelector(".grupo");
+        console.log("entro a funcion")
 
-        let TaskInfo = await getTask();
+        let datoRecientes = extraerDatos();
+        if (datoRecientes == false) {
+            alert("Escriba los datos en los input");
+        }else{
+            let divTasks = document.querySelector(".grupo");
 
-        console.log(TaskInfo);
-
-        //Esto es para extraer del json (api) la task y la area.
-        let ultimoIndice = TaskInfo.pop();
-
-        //Itera solo el ultimo elemtno del JSOn, y agrega el elemento:
-        for (const key in ultimoIndice) {
-            let task = ultimoIndice.task;
-            let area = ultimoIndice.area;
+            let task = datoRecientes[0];
+            let area = datoRecientes[1];
 
             console.log(task)
             
@@ -51,15 +47,11 @@ function elementos() {
 
             divTasks.appendChild(container);
 
-            //Recargar()
-
-            //  console.log(JSON.stringify(task));
-            //  console.log(JSON.stringify(area));
-            
-            break;
+            inputsChecks.push(checkbox)
         }
     }
     Esperar();
+    return inputsChecks;
 };
 
 export {elementos}
