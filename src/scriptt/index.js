@@ -72,8 +72,6 @@ async function reconocerIcono() {
      elementoClick[index].addEventListener("click", deleteTask);
    };
 
-
-   
     //Recorre los inputs clickeados del HTML y escoge el clickeado desde la pagina
   
     let elementoInput = document.querySelectorAll(".checkbox");

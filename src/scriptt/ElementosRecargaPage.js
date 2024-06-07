@@ -6,17 +6,14 @@ import { elementos } from "./agregarElementos";
 let arrayIconos  = [];
 let check = document.querySelector(".contador");
 
-var boleano = "";
-
 async function Recargar() {
+    
 
     //Hace que la pagina borre lo que tenia antes de ser actualizada, y agrega los que ya 
     let divTasks = document.querySelector(".grupo");
     if (divTasks.innerHTML != "") {
-        console.log("xdddd");
         divTasks.innerHTML = "";
     }else{
-
         let tasks = await getTask();
         
         for (const key in tasks) {
@@ -33,18 +30,18 @@ async function Recargar() {
             checkBox.type = "checkbox";
             checkBox.id= tasks[key].id
             checkBox.className = "checkbox";
-            
-            // checkBox.checked = tasks[key].status;
-            // console.log(task[key].status)
-            
-
+            if (tasks[key].status == true) {
+                check.textContent++;
+            }
+        
             checkBox.addEventListener("click",()=>{
                 if (checkBox.checked) {
                      check.textContent++;
 
                 }else{
-                    check.textContent--;
-                   
+                    if (check.textContent != 0) {
+                        check.textContent--;
+                    }
                 };
             });
             
@@ -58,7 +55,6 @@ async function Recargar() {
             let icono = document.createElement("img");
             icono.id =tasks[key].id
             icono.className = "icono";
-    
             icono.src = "https://thumbs.dreamstime.com/b/icono-rojo-de-la-l%C3%ADnea-papelera-reciclaje-en-fondo-blanco-ilustraci%C3%B3n-vectores-estilo-plano-171177844.jpg";
     
             //Añadir los elementos al contenedor
@@ -95,7 +91,7 @@ async function putTask(evento) {
     let tasks = await getTask();
 
     //Esto hace que verifique si el elemento ya estaba checkeado, se recorren con un for  
-    //y capta el elemento desde la api y lo cambia segun su status. 
+    //y capta el elemento desde la api y lo cambia segun su status. El status es lo unico que cambia en la estructura PUT
     
     for (const key in tasks) {
         if (tasks[key].id == idString) {
