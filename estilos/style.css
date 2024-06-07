@@ -1,3 +1,4 @@
+
 #inputAgregarTarea, #inputAgregarArea{
     padding: 5px;
     font-size: 30px;
@@ -92,10 +93,27 @@
     flex-grow: 1;
     text-align: center; 
     font-size: 40px;
+    
 }
 
 .icono {
     margin-left: 10px; 
     height: 100px;
     width: 100px;
+    margin-top: 30px;
+}
+
+.change{
+   margin: auto;
+   height: 50px;
+   margin-right: 10px;
+   border: 5px solid #0007;
+}
+
+.btnCambiar{
+    margin: auto;
+    height: 50px;
+    margin-right: 10px;
+    border: 5px solid #0007;
+    font-size: 30px;
 }

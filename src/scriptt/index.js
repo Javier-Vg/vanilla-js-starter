@@ -22,8 +22,10 @@ agregarBtn.addEventListener("click", function () {
   }else{
     console.log("kakakaka");
     async function postTask() {
+      let PostTest = [];
       
       try {
+
           const response = await fetch('http://localhost:3000/api/task', {
   
             method: 'POST',
@@ -40,19 +42,17 @@ agregarBtn.addEventListener("click", function () {
       }catch(error) {
         console.log(error);
       }
+      //return PostTest.push(task);
     };
-
     postTask();
-
   };
-
   elementos();
-  
 });
 
 //Recupera los elementos de la pagina
 
 Recargar();
+
 
 async function reconocerIcono() {
 
@@ -61,7 +61,6 @@ async function reconocerIcono() {
   console.log(array)
 
   //Recorre los iconos clickeados  ( img - icono ) del HTML y escoge el clickeado desde la pagina
-  
    let elementoClick = document.querySelectorAll(".icono");
    console.log(elementoClick);
 
@@ -73,7 +72,6 @@ async function reconocerIcono() {
    };
 
     //Recorre los inputs clickeados del HTML y escoge el clickeado desde la pagina
-  
     let elementoInput = document.querySelectorAll(".checkbox");
     console.log(elementoInput);
  
@@ -81,21 +79,30 @@ async function reconocerIcono() {
  
       elementoInput[index].addEventListener("click", putTask);
     };
+
+  //Recorre los iconos clickeados  ( img - icono ) del HTML y escoge el clickeado desde la pagina
+   let elementoCambioTask = document.querySelectorAll(".btnCambiar");
+
+   for (let index = 0; index < elementoCambioTask.length; index++) {
+     console.log("hay mi madre");
+     //Cambia el evento YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+     elementoCambioTask[index].addEventListener("click", deleteTask);
+   };
 };
 
 //Esto trae los elementos y para que sean globales
-reconocerIcono();
 
+reconocerIcono();
 
 //Esto es para que el form no pueda agregar 2 veces un elemento:
 
 //ESTO NO SE SI HACE ALGO, PERO PUEDE BORRALO
-let form = document.getElementById("formulario")
-form.addEventListener("submit", function() {
-  console.log("8");
-})
+// let form = document.getElementById("formulario")
+// form.addEventListener("submit", function() {
+//   console.log("8");
+// })
 
-
+//let noTaskTitulo = document.getElementById("NoTasksTitulo");
 
 export {reconocerIcono}
 

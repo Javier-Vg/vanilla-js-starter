@@ -1,4 +1,3 @@
-
 import { extraerDatos } from "./agregarDatos";
 
 //Esto hace que se actualize cuando integre otro dato, no me agrega el anterior
@@ -30,6 +29,17 @@ function elementos() {
             checkbox.type = "checkbox";
             checkbox.className = "checkbox";
 
+            // Crear el input para cambiar tassk
+            let change = document.createElement("input");
+            change.type = "text";
+            change.className = "change";
+            change.style.display = "none";
+
+            // Crear el boton para mostar el input y cambiarlor
+            let btn = document.createElement("button");
+            btn.type = "text";
+            btn.className = "btnCambiar";
+            btn.textContent = "Change";
 
             // Crear el texto
             let taskTexto = document.createElement("p");
@@ -44,12 +54,15 @@ function elementos() {
             // Añadir los elementos al contenedor
             container.appendChild(checkbox);
             container.appendChild(taskTexto);
+            container.appendChild(change);
             container.appendChild(icono);
-
+            
             divTasks.appendChild(container);
 
-            inputsChecks.push(checkbox)
+            //inputsChecks.push(checkbox)
         }
+
+        window.location.reload();
     }
     Esperar();
     return inputsChecks;

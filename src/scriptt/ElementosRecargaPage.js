@@ -5,15 +5,19 @@ import { elementos } from "./agregarElementos";
 //import { reconocerIcono } from "./index";
 let arrayIconos  = [];
 let check = document.querySelector(".contador");
+let noTaskTitulo = document.getElementById("NoTasksTitulo");
+
+//let contenedores = document.querySelector(".containerTarea");
+let divTasks = document.querySelector(".grupo");
 
 async function Recargar() {
-    
-
-    //Hace que la pagina borre lo que tenia antes de ser actualizada, y agrega los que ya 
     let divTasks = document.querySelector(".grupo");
+    //Hace que la pagina borre lo que tenia antes de ser actualizada, y agrega los que ya 
+    
     if (divTasks.innerHTML != "") {
         divTasks.innerHTML = "";
-    }else{
+    }else {
+        //noTaskTitulo.style.display = "none";
         let tasks = await getTask();
         
         for (const key in tasks) {
@@ -45,28 +49,44 @@ async function Recargar() {
                 };
             });
             
-
             // Crear el texto
             let taskTexto = document.createElement("p");
             taskTexto.className = "taskTexto";
             taskTexto.innerHTML = task+"<br>"+area;
+            taskTexto.id= tasks[key].id;
+
+            // Crear el input para cambiar tassk
+            let change = document.createElement("input");
+            change.type = "text";
+            change.className = "change";
+            change.id= tasks[key].id;
+            change.style.display = "none";
+
+            // Crear el boton para mostar el input y cambiarlor
+            let btn = document.createElement("button");
+            btn.type = "text";
+            btn.className = "btnCambiar";
+            btn.textContent = "Change"
+            btn.id= tasks[key].id;
     
             // Crear el iconoo
             let icono = document.createElement("img");
-            icono.id =tasks[key].id
+            icono.id =tasks[key].id;
             icono.className = "icono";
             icono.src = "https://thumbs.dreamstime.com/b/icono-rojo-de-la-l%C3%ADnea-papelera-reciclaje-en-fondo-blanco-ilustraci%C3%B3n-vectores-estilo-plano-171177844.jpg";
     
             //Añadir los elementos al contenedor
             container.appendChild(checkBox);
             container.appendChild(taskTexto);
+            container.appendChild(change);
+            container.appendChild(btn);
             container.appendChild(icono);
+           
     
             divTasks.appendChild(container);
             
             //Añade los elementos donde estan añadidos los iconos:
             arrayIconos.push(icono);
-
 
             if (tasks[key].status == true) {
                 console.log("jaja no")
@@ -74,7 +94,18 @@ async function Recargar() {
             };
         };
     };
-    
+
+
+    //let divTasks = document.querySelector(".grupo");
+    // if (divTasks.innerHTML == "") {
+    //     //noTaskTitulo.style.display = "inline-block"
+    //     console.log("nooooooooo")
+    //     divTasks.innerHTML = "jajaja";
+    // }else{
+    //     divTasks.innerHTML = "kakakak";
+    // };
+
+
     //Retorna los elementos de los iconos, que son las 
     //imagenes para que me lo reconzaca el for que los recorre.
     return arrayIconos;
@@ -133,7 +164,6 @@ async function putTask(evento) {
         }
     }
 };
-
 
 export {Recargar}
 export { putTask }
