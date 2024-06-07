@@ -103,6 +103,8 @@ reconocerIcono();
 // devolverCheks();
 
 //Esto es para que el form no pueda agregar 2 veces un elemento:
+
+//ESTO NO SE SI HACE ALGO, PERO PUEDE BORRALO
 let form = document.getElementById("formulario")
 form.addEventListener("submit", function() {
   console.log("8");
