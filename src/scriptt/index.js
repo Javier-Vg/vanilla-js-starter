@@ -72,6 +72,8 @@ async function reconocerIcono() {
      elementoClick[index].addEventListener("click", deleteTask);
    };
 
+
+   
     //Recorre los inputs clickeados del HTML y escoge el clickeado desde la pagina
   
     let elementoInput = document.querySelectorAll(".checkbox");
@@ -86,21 +88,6 @@ async function reconocerIcono() {
 //Esto trae los elementos y para que sean globales
 reconocerIcono();
 
-//let inputs = document.querySelectorAll(".checkbox");
-// async function devolverCheks() {
-//   let checkss = await getTask();
-//   console.log(checkss);
-//   checkss.forEach(element => {
-    
-//     console.log(element.status);
-//     if (checkss.status == true) {
-//       //console.log(" khe?")
-//       element.checked = true;
-//     }
-//   });
-// }
-
-// devolverCheks();
 
 //Esto es para que el form no pueda agregar 2 veces un elemento:
 let form = document.getElementById("formulario")
@@ -108,23 +95,6 @@ form.addEventListener("submit", function() {
   console.log("8");
 })
 
-
-// if (tasks[key].status == false) {
-//   tasks[key].status = true;
-//   checkBox.checked = true;
-
-// }else{
-//   // tasks[key].status = false;
-//   // document.querySelector(".checkbox").checked = false;
-//   console.log("esto es el else del check")
-// };
-
-async function jaja() {
-  let kk = await getTask();
-  console.log(kk)
-  
-}
-jaja();
 
 
 export {reconocerIcono}
