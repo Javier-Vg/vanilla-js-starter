@@ -5,15 +5,12 @@ import { elementos } from "./agregarElementos";
 //import { reconocerIcono } from "./index";
 let arrayIconos  = [];
 let check = document.querySelector(".contador");
-let noTaskTitulo = document.getElementById("NoTasksTitulo");
-
 //let contenedores = document.querySelector(".containerTarea");
 let divTasks = document.querySelector(".grupo");
 
 async function Recargar() {
     let divTasks = document.querySelector(".grupo");
     //Hace que la pagina borre lo que tenia antes de ser actualizada, y agrega los que ya 
-    
     if (divTasks.innerHTML != "") {
         divTasks.innerHTML = "";
     }else {
@@ -89,28 +86,27 @@ async function Recargar() {
             arrayIconos.push(icono);
 
             if (tasks[key].status == true) {
+
                 console.log("jaja no")
                 checkBox.checked = true;
             };
-        };
+        };  
+
+        if (divTasks.textContent == "") {
+            // Crea el mensaje que no hay tareas
+            let h = document.createElement("h1");
+            h.className = "noTaskH1";
+            h.textContent = "No existen tareas."
+            divTasks.appendChild(h); 
+        };    
     };
-
-
-    //let divTasks = document.querySelector(".grupo");
-    // if (divTasks.innerHTML == "") {
-    //     //noTaskTitulo.style.display = "inline-block"
-    //     console.log("nooooooooo")
-    //     divTasks.innerHTML = "jajaja";
-    // }else{
-    //     divTasks.innerHTML = "kakakak";
-    // };
-
-
-    //Retorna los elementos de los iconos, que son las 
-    //imagenes para que me lo reconzaca el for que los recorre.
-    return arrayIconos;
 };
 
+//En caso de haber algo dentro del div que contiene las tareas, el mensaje desaparece:
+if(divTasks.textContent != ""){
+    let p =document.querySelector(".noTaskH1");
+    p.remove();
+}
 
 async function putTask(evento) {
     
@@ -163,7 +159,7 @@ async function putTask(evento) {
             }
         }
     }
-};
+}
 
 export {Recargar}
 export { putTask }

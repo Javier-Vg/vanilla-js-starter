@@ -117,3 +117,28 @@
     border: 5px solid #0007;
     font-size: 30px;
 }
+
+#cerrarModal{
+    margin-left: 15px;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    color:white ;
+    background-color: black;
+    border: 5px solid #0003;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.dialog{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.change{
+    border: 5px solid #48e;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+
+}

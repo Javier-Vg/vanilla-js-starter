@@ -3,15 +3,14 @@ import { extraerDatos } from "./agregarDatos";
 import { elementos } from "./agregarElementos";
 import { Recargar } from "./ElementosRecargaPage";
 import { deleteTask } from "./eliminarTask";
-import { getTask } from "./mostrarDatos";
 import { putTask } from "./ElementosRecargaPage";
+import { putModificarTask } from "./modificarTask";
 
 //let verificadorAñadirElementos = false;
 
 let agregarBtn = document.getElementById("agregar");
 //Evento para llamar a la funciones:
 agregarBtn.addEventListener("click", function () {
-
 
   let taskFuncion = extraerDatos();
 
@@ -22,10 +21,8 @@ agregarBtn.addEventListener("click", function () {
   }else{
     console.log("kakakaka");
     async function postTask() {
-      let PostTest = [];
       
       try {
-
           const response = await fetch('http://localhost:3000/api/task', {
   
             method: 'POST',
@@ -49,18 +46,12 @@ agregarBtn.addEventListener("click", function () {
   elementos();
 });
 
-//Recupera los elementos de la pagina
-
-Recargar();
-
 
 async function reconocerIcono() {
 
-  //Esto es para extraer el array que retorna la funcion "Recargar"
+  //Esto es para extraer los elementos al refrezcar la pagina
   let array = await Recargar();
-  let get = await getTask();
-
-  console.log(array)
+  
 
   //Recorre los iconos clickeados  ( img - icono ) del HTML y escoge el clickeado desde la pagina
    let elementoClick = document.querySelectorAll(".icono");
@@ -82,61 +73,56 @@ async function reconocerIcono() {
       elementoInput[index].addEventListener("click", putTask);
     };
 
-
-
-
-
     //Recorre los botones clickeados y salta un modal, muestra lo que esta en el dialog.
     let elementoCambioTask = document.querySelectorAll(".btnCambiar");
     let cerrarModal = document.getElementById("cerrarModal");
     let Modal = document.querySelector(".dialog");
+    //Esto es el elemento p donde se muestra la task
+    let TextoP = document.querySelectorAll(".taskTexto");
+    let ValoresDelInputt = [];
+
+
     for (let index = 0; index < elementoCambioTask.length; index++) {
 
       console.log("dialog");
       elementoCambioTask[index].addEventListener("click", () => {
 
-          let change = document.createElement("input");
-          change.type = "text";
-          change.className = "change";
-          change.id = elementoCambioTask[index].id;
-          Modal.appendChild(change);
+        let change = document.createElement("input");
+        change.type = "text";
+        change.className = "change";
+        change.placeholder ="Modifique su tarea"
+        change.id = elementoCambioTask[index].id;
+        TextoP.id = elementoCambioTask[index].id
 
-          console.log(elementoCambioTask[index].id);
+        Modal.appendChild(change);
 
-          Modal.showModal();
-
-          let k = document.getElementById(elementoCambioTask[index].id)
-          
-          k.oninput = function() {
-            result.innerHTML = input.value;
-          };
-          
-      });
-
-
-
-      cerrarModal.addEventListener("click", ()=>{
-        console.log("cerrando modal");
-        //Modal.remove(change);
-        Modal.close();
-        window.location.reload()
+        ValoresDelInputt.splice(0,2,elementoCambioTask[index].id)
+        Modal.showModal();
         
       });
+      
+      cerrarModal.addEventListener("click", ()=>{
+        let Inputt = document.getElementById(TextoP[index].id).value;
+        ValoresDelInputt.splice(1,0,Inputt);
+        Modal.close();
+        
+        cambioTask(ValoresDelInputt);
+        window.location.reload()
+      });
+    };
+
+    function cambioTask(params) {
+      let elementoInput = document.querySelectorAll(".checkbox");
+  
+      for (let index = 0; index < elementoInput.length; index++) {
+  
+        elementoInput[index].addEventListener("click", putModificarTask(params));
+      };
     };
 };
 
-
-
-
-
-
-
-
-
 //Esto trae los elementos y para que sean globales
 reconocerIcono();
-
-
 
 export {reconocerIcono}
 
