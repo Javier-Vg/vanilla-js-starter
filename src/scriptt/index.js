@@ -58,6 +58,8 @@ async function reconocerIcono() {
 
   //Esto es para extraer el array que retorna la funcion "Recargar"
   let array = await Recargar();
+  let get = await getTask();
+
   console.log(array)
 
   //Recorre los iconos clickeados  ( img - icono ) del HTML y escoge el clickeado desde la pagina
@@ -80,29 +82,61 @@ async function reconocerIcono() {
       elementoInput[index].addEventListener("click", putTask);
     };
 
-  //Recorre los iconos clickeados  ( img - icono ) del HTML y escoge el clickeado desde la pagina
-   let elementoCambioTask = document.querySelectorAll(".btnCambiar");
 
-   for (let index = 0; index < elementoCambioTask.length; index++) {
-     console.log("hay mi madre");
-     //Cambia el evento YAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-     elementoCambioTask[index].addEventListener("click", deleteTask);
-   };
+
+
+
+    //Recorre los botones clickeados y salta un modal, muestra lo que esta en el dialog.
+    let elementoCambioTask = document.querySelectorAll(".btnCambiar");
+    let cerrarModal = document.getElementById("cerrarModal");
+    let Modal = document.querySelector(".dialog");
+    for (let index = 0; index < elementoCambioTask.length; index++) {
+
+      console.log("dialog");
+      elementoCambioTask[index].addEventListener("click", () => {
+
+          let change = document.createElement("input");
+          change.type = "text";
+          change.className = "change";
+          change.id = elementoCambioTask[index].id;
+          Modal.appendChild(change);
+
+          console.log(elementoCambioTask[index].id);
+
+          Modal.showModal();
+
+          let k = document.getElementById(elementoCambioTask[index].id)
+          
+          k.oninput = function() {
+            result.innerHTML = input.value;
+          };
+          
+      });
+
+
+
+      cerrarModal.addEventListener("click", ()=>{
+        console.log("cerrando modal");
+        //Modal.remove(change);
+        Modal.close();
+        window.location.reload()
+        
+      });
+    };
 };
 
-//Esto trae los elementos y para que sean globales
 
+
+
+
+
+
+
+
+//Esto trae los elementos y para que sean globales
 reconocerIcono();
 
-//Esto es para que el form no pueda agregar 2 veces un elemento:
 
-//ESTO NO SE SI HACE ALGO, PERO PUEDE BORRALO
-// let form = document.getElementById("formulario")
-// form.addEventListener("submit", function() {
-//   console.log("8");
-// })
-
-//let noTaskTitulo = document.getElementById("NoTasksTitulo");
 
 export {reconocerIcono}
 
