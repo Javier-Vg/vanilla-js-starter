@@ -1,4 +1,6 @@
 import { getTask } from "./mostrarDatos";
+import { funcionalidad } from "./index";
+
 
 async function filtrar(input) {
     let divTasks = document.querySelector(".grupo");
@@ -7,6 +9,8 @@ async function filtrar(input) {
     divTasks.innerHTML = "";
 
     let tasks = await getTask();
+    
+
     let check = document.querySelector(".contador");
     //input.toLowerCase();
 
@@ -30,7 +34,7 @@ async function filtrar(input) {
             checkBox.id= areaTask.id
             checkBox.className = "checkbox";
             if (areaTask.status == true) {
-                check.textContent++;
+                checkBox.checked = true;
             }
         
             checkBox.addEventListener("click",()=>{
@@ -50,13 +54,6 @@ async function filtrar(input) {
             taskTexto.innerHTML = task+"<br>"+area;
             taskTexto.id= areaTask.id;
 
-            // Crear el input para cambiar tassk
-            let change = document.createElement("input");
-            change.type = "text";
-            change.className = "change";
-            change.id= areaTask.id;
-            change.style.display = "none";
-
             // Crear el boton para mostar el input y cambiarlor
             let btn = document.createElement("button");
             btn.type = "text";
@@ -73,21 +70,30 @@ async function filtrar(input) {
             //Añadir los elementos al contenedor
             container.appendChild(checkBox);
             container.appendChild(taskTexto);
-            container.appendChild(change);
             container.appendChild(btn);
             container.appendChild(icono);
            
-    
             divTasks.appendChild(container);
         }
     });
-
+    
     if (divTasks.textContent == "") {
         alert("No hubieron tareas con esa area.")
         window.location.reload();
     }
-    
-    //alert(input)
+
+    //Se llama a la funcion que contiene 
+    funcionalidad()
 }
+
+//Depende del parametro enviado, se ejecutara ese filtrado de tareas ( terminadas y no terminadas ).
+function FiltradoAlternado(boleano) {
+    if (boleano = true) {
+        
+    }else{
+        
+    }
+}
+
 
 export {filtrar}

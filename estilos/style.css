@@ -5,9 +5,19 @@
     margin-left: 90px;
     border-radius: 6px;
 }
+
+.inputFilter{
+    padding: 5px;
+    font-size: 30px;
+    margin-left: 90px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
 .titulo{
-    font-size: 70px;
-    text-align: center;
+    font-size: 50px;
+    margin-left: 80px;
+    font-family:Arial, Helvetica, sans-serif ;
+    letter-spacing: 5px;
 }
 .btn1{
     padding: 6px;
@@ -145,4 +155,21 @@
 
 .noTaskH1{
     margin-top: 200px;
+}
+
+
+.btnTT{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.btnTNT{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
 }

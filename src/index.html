@@ -14,7 +14,18 @@
 	</dialog>
 
 	<div class="divCore">
-		<h1 class="titulo">Tareas por hacer</h1>
+		<div style="display: flex; justify-content: space-between;">
+			<div>
+				<h1 class="titulo">Tareas por hacer</h1>
+			</div>
+			<div>
+				<div class="grid">
+					<div><h2 style="text-align: center; font-size: 30px;">Tareas Completadas</h2></div>
+					<div><div class="contador">0</div></div>
+				</div>
+			</div>
+		</div>
+		
 
 		<div class="flexbox">
 			<div>
@@ -33,15 +44,16 @@
 			<div style="margin: auto;">
 				<h3>Filtar por areas:</h3>
 				<form >
-					<input class="inputFilter" type="text" required>
+					<input class="inputFilter" placeholder="Ingrese el area de la tarea:" type="text" required>
+					<br>
 					<button class="btnFilter">Buscar</button>
+					
 				</form>
+				<button id="resetear">ver lista original</button>
 			</div>
 			<div>
-				<div class="grid">
-					<div><h2 style="text-align: center; font-size: 30px;">Tareas Completadas</h2></div>
-					<div><div class="contador">0</div></div>
-				</div>
+				<img class="btnTT" src="/iconos/comprobado-removebg-preview.png" alt="NoCompletadas">
+				<img class="btnTNT" src="/iconos/boton-x-removebg-preview.png" alt="Completas">
 			</div>
 		</div>
 

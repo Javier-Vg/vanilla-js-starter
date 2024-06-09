@@ -52,13 +52,6 @@ async function Recargar() {
             taskTexto.innerHTML = task+"<br>"+area;
             taskTexto.id= tasks[key].id;
 
-            // Crear el input para cambiar tassk
-            let change = document.createElement("input");
-            change.type = "text";
-            change.className = "change";
-            change.id= tasks[key].id;
-            change.style.display = "none";
-
             // Crear el boton para mostar el input y cambiarlor
             let btn = document.createElement("button");
             btn.type = "text";
@@ -75,7 +68,6 @@ async function Recargar() {
             //Añadir los elementos al contenedor
             container.appendChild(checkBox);
             container.appendChild(taskTexto);
-            container.appendChild(change);
             container.appendChild(btn);
             container.appendChild(icono);
            
