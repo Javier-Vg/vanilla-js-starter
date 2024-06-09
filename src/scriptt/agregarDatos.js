@@ -8,9 +8,8 @@ function extraerDatos() {
         let array = [input,area];
         return array;
     }else{
-        alert("Llene los espacios.");
+        console.log("espacios vacios")
         return false;
     }
 };
-
 export {extraerDatos}

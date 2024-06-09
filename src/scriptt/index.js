@@ -5,6 +5,17 @@ import { Recargar } from "./ElementosRecargaPage";
 import { deleteTask } from "./eliminarTask";
 import { putTask } from "./ElementosRecargaPage";
 import { putModificarTask } from "./modificarTask";
+import { filtrar } from "./filtrarTasks";
+
+//FILTRAR POR AREAS DE TAREAS 
+let btnFilter = document.querySelector(".btnFilter");
+btnFilter.addEventListener("click", function(e) {
+  
+  let inputFilter = document.querySelector(".inputFilter").value;
+
+  filtrar(inputFilter)
+  e.preventDefault();
+})
 
 //let verificadorAñadirElementos = false;
 
@@ -120,6 +131,8 @@ async function reconocerIcono() {
       };
     };
 };
+
+
 
 //Esto trae los elementos y para que sean globales
 reconocerIcono();

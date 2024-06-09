@@ -6,8 +6,6 @@
 	<link rel="stylesheet" href="../estilos/style.css">
 </head>
 <body>
-
-	
 	<dialog class="dialog">
 		<!--CREA EL INPUT DESDE EL JS Y DESPUES INSERTALA ACA -->
 		<button id="cerrarModal">Modificar</button>
@@ -20,8 +18,7 @@
 
 		<div class="flexbox">
 			<div>
-				<form action="">
-
+				<form >
 					<input id="inputAgregarTarea" placeholder="Ingresar tarea" type="text" required>
 					<br>
 					<br>
@@ -32,6 +29,13 @@
 				</form>
 				
 				<br>
+			</div>
+			<div style="margin: auto;">
+				<h3>Filtar por areas:</h3>
+				<form >
+					<input class="inputFilter" type="text" required>
+					<button class="btnFilter">Buscar</button>
+				</form>
 			</div>
 			<div>
 				<div class="grid">

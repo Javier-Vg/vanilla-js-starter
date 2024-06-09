@@ -19,7 +19,7 @@ async function putModificarTask(elemento) {
     }
     //window.location.reload()
   }else{
-    alert("Llene los espacios.");
+    console.log("espacios vacios");
   };
 };
 
