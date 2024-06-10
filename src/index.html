@@ -26,14 +26,13 @@
 			</div>
 		</div>
 		
-
 		<div class="flexbox">
 			<div>
 				<form >
-					<input id="inputAgregarTarea" placeholder="Ingresar tarea" type="text" required>
+					<input id="inputAgregarTarea" placeholder="Describir la tarea:" type="text" required>
 					<br>
 					<br>
-					<input id="inputAgregarArea" placeholder="Area de trabajo de la task:" type="text" required>
+					<input id="inputAgregarArea" placeholder="Area de trabajo de la tarea:" type="text" required>
 					<br>
 					<br>
 					<button class="btn1" id="agregar">Agregar</button>
@@ -41,22 +40,19 @@
 				
 				<br>
 			</div>
-			<div style="margin: auto;">
-				<h3>Filtar por areas:</h3>
+			<div class="divLupa">
 				<form >
-					<input class="inputFilter" placeholder="Ingrese el area de la tarea:" type="text" required>
-					<br>
-					<button class="btnFilter">Buscar</button>
-					
+					<input class="inputFilter" placeholder="Buscar por area:" type="text" required>
+					<button class="btnFilter"><img id="lupa" src="/iconos/lupa.png" alt=""></button>
 				</form>
-				<button id="resetear">ver lista original</button>
 			</div>
-			<div>
+			<div class="divAlternado">
 				<img class="btnTT" src="/iconos/comprobado-removebg-preview.png" alt="NoCompletadas">
 				<img class="btnTNT" src="/iconos/boton-x-removebg-preview.png" alt="Completas">
+				<img id="resetear" src="/iconos/repeats.png" alt="TasksCompletas">
 			</div>
 		</div>
-
+		
 		<div class="grupo"></div>
 	</div>
 	

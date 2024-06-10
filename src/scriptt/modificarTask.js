@@ -1,6 +1,6 @@
-
+//Funcion asincronica que utiliza el metodo PUT para hacer un cambio en la descripcion de la tarea:
 async function putModificarTask(elemento) {
-  console.log(elemento)
+  //En caso de que el input venga vacio, salta un mensaje alert, si no, hace el cambio basandose en los elementos del array.
   if ((elemento[1]).trim() != "" ) {
     try {
       console.log("puttt f");
@@ -17,9 +17,9 @@ async function putModificarTask(elemento) {
     }catch(error) {
       console.log("error");
     }
-    //window.location.reload()
   }else{
-    console.log("espacios vacios");
+    alert("Tiene que escribir en la barra de texto para editar su tarea...");
+    
   };
 };
 

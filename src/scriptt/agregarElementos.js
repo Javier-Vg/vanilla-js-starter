@@ -1,15 +1,12 @@
 import { extraerDatos } from "./agregarDatos";
 
-//Esto hace que se actualize cuando integre otro dato, no me agrega el anterior
-//getTask();
-let inputsChecks = [];
+//Esto hace que agregue un nuevo elemento a la pagina
 function elementos() {
-    //ESPORTA LOS INPUTSSS
+    
     async function Esperar() {
-
-        console.log("entro a funcion")
-
+        //Exporta los inputs
         let datoRecientes = extraerDatos();
+        //Valida de que los inputs no vengan vacios, en ese caso no deja integrar un nuevo elemento.
         if (datoRecientes == false) {
             alert("Escriba los datos en los input");
         }else{
@@ -17,11 +14,9 @@ function elementos() {
 
             let task = datoRecientes[0];
             let area = datoRecientes[1];
-
-            console.log(task)
             
             // Crear el contenedor
-            let container = document.createElement("div");     
+            let container = document.createElement("div"); 
             container.className = "containerTarea";
 
             // Crear el checkbox
@@ -29,16 +24,14 @@ function elementos() {
             checkbox.type = "checkbox";
             checkbox.className = "checkbox";
 
-            // Crear el boton para mostar el input y cambiarlor
-            let btn = document.createElement("button");
-            btn.type = "text";
+            let btn = document.createElement("img");
+            btn.src = "https://i.pinimg.com/736x/dc/4b/0f/dc4b0fe20cd9ee99456325d04185bc9e.jpg"
             btn.className = "btnCambiar";
-            btn.textContent = "Change";
 
             // Crear el texto
             let taskTexto = document.createElement("p");
             taskTexto.className = "taskTexto";
-            taskTexto.innerHTML = task+"<br>"+area;
+            taskTexto.innerHTML = task+"<br><b>Area: "+area;
 
             // Crear el iconoo
             let icono = document.createElement("img");
@@ -48,16 +41,19 @@ function elementos() {
             // Añadir los elementos al contenedor
             container.appendChild(checkbox);
             container.appendChild(taskTexto);
+            container.appendChild(btn);
             container.appendChild(icono);
+            
             divTasks.appendChild(container);
-
-            //inputsChecks.push(checkbox)
         }
+        alert("jajaj que pts")
 
+        //Recarga la pagina en auto
         window.location.reload();
     }
+
+    //Llama a la funcion principal de esta funcion.
     Esperar();
-    return inputsChecks;
 };
 
 export {elementos}

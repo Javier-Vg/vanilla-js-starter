@@ -1,12 +1,9 @@
-
+//Elimina objetos del API
 async function deleteTask(evento) {
-    console.log("llega");
-
     //Extraigo el ID desde el evento del la funcion, para despues agregarlo en el getElementId,
     //para luego tomarlos como referencia al agregarlo al HTML con el appendChild.
 
     let idString = evento.currentTarget.getAttribute("id");
-    //let IdDelDom = document.querySelector("."+idString)
     
     try {
         console.log("try");
