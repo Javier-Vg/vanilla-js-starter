@@ -15,7 +15,7 @@ async function putModificarTask(elemento) {
       });
       
     }catch(error) {
-      console.log("error");
+      alert("error");
     }
   }else{
     alert("Tiene que escribir en la barra de texto para editar su tarea...");

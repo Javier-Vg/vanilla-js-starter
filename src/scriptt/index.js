@@ -46,7 +46,7 @@ agregarBtn.addEventListener("click", function () {
           });
           
       }catch(error) {
-        console.log(error);
+        alert(error);
       }
       //return PostTest.push(task);
     };
@@ -60,7 +60,6 @@ async function reconocerIcono() {
   let array = await Recargar();
   //Ejecuta la funcion que contiene los eventos click
   funcionalidad();
-
 };
 
 //Esta funcion contiene todos los eventos que activan el cambio de los elementos y filtrar por tareas:
@@ -112,7 +111,7 @@ function funcionalidad() {
       //se inserta el valor del id en el indice 0 del array
       ValoresDelInputt.splice(0,2,elementoCambioTask[index].id)
       Modal.showModal();
-          
+    
     });
         
     cerrarModal.addEventListener("click", ()=>{

@@ -8,7 +8,7 @@ async function getTask() {
       return data;
       
     } catch (error) {
-      console.error(error);
+      alert("Error");
     }
 };
 

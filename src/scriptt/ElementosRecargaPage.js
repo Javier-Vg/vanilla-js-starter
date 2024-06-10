@@ -120,7 +120,7 @@ async function putTask(evento) {
                     });
                     
                 }catch(error) {
-                    console.log("error");
+                    alert("Error");
                 }
                 
             }else{
@@ -137,7 +137,7 @@ async function putTask(evento) {
                     });
                     
                 }catch(error) {
-                    console.log("error");
+                    alert("Error");
                 }
             }
         }

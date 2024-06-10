@@ -13,8 +13,8 @@ async function deleteTask(evento) {
         window.location.reload();
         
     }catch(error) {
-        console.log("error");
-      console.log(error);
+        alert("error");
+      
     }
 }
 
