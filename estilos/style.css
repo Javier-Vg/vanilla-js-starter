@@ -1,0 +1,229 @@
+body{
+    background-color: gray;
+    
+}
+#inputAgregarTarea, #inputAgregarArea{
+    padding: 5px;
+    font-size: 30px;
+    margin-left: 90px;
+    border-radius: 6px;
+}
+
+.inputFilter{
+    padding: 5px;
+    font-size: 30px;
+    margin-left: 90px;
+    margin-bottom: 25px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    margin-right: 0;
+    height: 80px;
+    position: relative;
+    
+}
+
+.btnFilter{
+    margin-left: 0;
+    padding: 15px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 93px;
+    position: absolute;
+}
+.divLupa{
+    margin-right: 160px;
+    margin-top: 80px;
+}
+.divAlternado{
+    margin-right: 150px;
+
+}
+.titulo{
+    font-size: 50px;
+    margin-left: 80px;
+    font-family:Arial, Helvetica, sans-serif ;
+    letter-spacing: 5px;
+}
+.btn1{
+    padding: 6px;
+    background-color: #48e;
+    color: white;
+    padding: 5px;
+    font-size: 30px;
+    margin-left: 90px;
+    width: 380px;
+    border-radius: 10px;
+}
+.contadorTask{
+    border: 3px solid;
+    text-align: center;
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
+
+.divCore{
+    height: 95vh;
+    width: 165vh;
+    border: 5px solid;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: white;
+}
+.contador{
+    width: 150px;
+    height: 150px;
+    border: 3px solid #0005;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    
+}
+
+.flexbox{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 200px 200px;
+    margin-top: 50px;
+    margin-right: 60px;
+}
+
+.grupo{
+    height: 600px;
+    width: 1730px;
+    border: 4px solid ;
+    margin: auto;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 50px;
+    text-align: center;
+    padding: 20px;
+    overflow: auto;
+    border-radius: 15px;
+}
+
+.containerTarea{
+    border: 2px solid #0005;
+    display: flex;
+    margin: 20px;
+    border-radius: 15px;
+    height: 120px;
+    
+}
+
+.checkbox {
+    margin-right: 3px; 
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    margin-left: 12px;
+}
+
+.taskTexto {
+    margin-left: 55px;
+    flex-grow: 1;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: start;
+}
+
+.icono {
+    margin-left: 10px; 
+    height: 113px;
+    width: 113px;
+    margin-top: 1px;
+    transition: all 0.5s ease;
+}
+
+.icono:hover{
+    height: 119px;
+    width: 119px;
+}
+
+.change{
+   margin: auto;
+   height: 50px;
+   margin-right: 10px;
+   border: 5px solid #0007;
+}
+
+.btnCambiar{
+    margin: auto;
+    height: 80px;
+    width: 80px;
+    margin-right: 10px;
+    font-size: 30px;
+    transition: all 0.5s ease;
+}
+.btnCambiar:hover{
+    height: 90px;
+    width: 90px;
+}
+
+#cerrarModal{
+    margin-left: 15px;
+    font-size: 25px;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    color:white ;
+    background-color: black;
+    border: 5px solid #0003;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.dialog{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.change{
+    border: 5px solid #48e;
+    font-size: 25px;
+    padding: 10px;
+    border-radius: 10px;
+
+}
+
+.noTaskH1{
+    margin-top: 200px;
+}
+
+.btnTT{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+.btnTNT{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+#resetear{
+    width: 84px;
+    height: 84px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+
+#lupa{
+    width: 55px;
+    height: 55px;
+}

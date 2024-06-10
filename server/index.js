@@ -16,28 +16,28 @@ var taskRouter = express.Router();
 var tasks = [];
 
 taskRouter
-  .route("/")
-  .get(function (req, res) {
+  .route("/")//http://localhost/api/todo/ || http://localhost/api/task/
+  .get(function (req, res) { //Extrae todas las task
     return res.json(tasks);
   })
-  .post(function (req, res) {
+  .post(function (req, res) {//crea una nueva task
     tasks.push({
       ...req.body,
       id: uuid(),
     });
     return res.json(tasks);
   });
-taskRouter.route("/:task_id")
-  .get(function (req, res) {
+taskRouter.route("/:task_id")//http://localhost/api/todo/:id || http://localhost/api/task/:id
+  .get(function (req, res) {//Extraer task en especifico
     const id = req.params.task_id
     return res.json(tasks.find((t) => t.id === id) ?? {});
   })
-  .delete(function (req, res) {
+  .delete(function (req, res) {// Eliminar task 
     const id = req.params.task_id
     tasks = tasks.filter((t) => t.id !== id)
     return res.json({});
   })
-  .put(function (req, res) {
+  .put(function (req, res) {//Actalizar task
     const id = req.params.task_id
     for (let index in tasks) {
       const task = tasks[index]

@@ -1,15 +1,64 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<title>Ejemplo básico</title>
 	<meta charset="UTF-8" />
+	<link rel="stylesheet" href="../estilos/style.css">
 </head>
-
 <body>
-	<h1>La aplicación esta corriendo!</h1>
+	<dialog class="dialog">
+		<!--CREA EL INPUT DESDE EL JS Y DESPUES INSERTALA ACA -->
+		<button id="cerrarModal">Modificar</button>
+		<br>
+		<br>
+	</dialog>
 
-	<script src="./index.js" type="module"></script>
+	<div class="divCore">
+		<div style="display: flex; justify-content: space-between;">
+			<div>
+				<h1 class="titulo">Tareas por hacer</h1>
+			</div>
+			<div>
+				<div class="grid">
+					<div><h2 style="text-align: center; font-size: 30px;">Tareas Completadas</h2></div>
+					<div><div class="contador">0</div></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="flexbox">
+			<div>
+				<form >
+					<input id="inputAgregarTarea" placeholder="Describir la tarea:" type="text" required>
+					<br>
+					<br>
+					<input id="inputAgregarArea" placeholder="Area de trabajo de la tarea:" type="text" required>
+					<br>
+					<br>
+					<button class="btn1" id="agregar">Agregar</button>
+				</form>
+				
+				<br>
+			</div>
+			<div class="divLupa">
+				<form >
+					<input class="inputFilter" placeholder="Buscar por area:" type="text" required>
+					<button class="btnFilter"><img id="lupa" src="/iconos/lupa.png" alt=""></button>
+				</form>
+			</div>
+			<div class="divAlternado">
+				<img class="btnTT" src="/iconos/comprobado-removebg-preview.png" alt="NoCompletadas">
+				<img class="btnTNT" src="/iconos/boton-x-removebg-preview.png" alt="Completas">
+				<img id="resetear" src="/iconos/repeats.png" alt="TasksCompletas">
+			</div>
+		</div>
+		
+		<div class="grupo"></div>
+	</div>
+	
+	<script type="module" src="./scriptt/index.js"></script>
+
+	<!--<script src="./index.js" type="module"></script>-->
+
 </body>
-
 </html>
