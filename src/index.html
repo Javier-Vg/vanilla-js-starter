@@ -3,62 +3,72 @@
 <head>
 	<title>Ejemplo básico</title>
 	<meta charset="UTF-8" />
-	<link rel="stylesheet" href="../estilos/style.css">
+	<link rel="stylesheet" href="/estilos/loginRegister.css">
 </head>
 <body>
-	<dialog class="dialog">
-		<!--CREA EL INPUT DESDE EL JS Y DESPUES INSERTALA ACAmmm -->
-		<button id="cerrarModal">Modificar</button>
-		<br>
-		<br>
-	</dialog>
-
-	<div class="divCore">
-		<div style="display: flex; justify-content: space-between;">
-			<div>
-				<h1 class="titulo">Tareas por hacer</h1>
-			</div>
-			<div>
-				<div class="grid">
-					<div><h2 style="text-align: center; font-size: 30px;">Tareas Completadas</h2></div>
-					<div><div class="contador">0</div></div>
-				</div>
-			</div>
+	<div class="grid">
+		<div>
+			<button class="btnR">Registrarse:</button>
 		</div>
-		
-		<div class="flexbox">
-			<div>
-				<form >
-					<input id="inputAgregarTarea" placeholder="Describir la tarea:" type="text" required>
-					<br>
-					<br>
-					<input id="inputAgregarArea" placeholder="Area de trabajo de la tarea:" type="text" required>
-					<br>
-					<br>
-					<button class="btn1" id="agregar">Agregar</button>
-				</form>
-				
-				<br>
-			</div>
-			<div class="divLupa">
-				<form >
-					<input class="inputFilter" placeholder="Buscar por area:" type="text" required>
-					<button class="btnFilter"><img id="lupa" src="/iconos/lupa.png" alt=""></button>
-				</form>
-			</div>
-			<div class="divAlternado">
-				<img class="btnTT" src="/iconos/comprobado-removebg-preview.png" alt="NoCompletadas">
-				<img class="btnTNT" src="/iconos/boton-x-removebg-preview.png" alt="Completas">
-				<img id="resetear" src="/iconos/repeats.png" alt="TasksCompletas">
-			</div>
+		<div>
+			<button class="btnL">Loguearse:</button>
 		</div>
-		
-		<div class="grupo"></div>
 	</div>
+
+	<dialog class="dialogRegister">
+		<form >
+			<label for="inputRegister">Ingrese su nuevo correo:</label>
+			<br>
+			<input class="inputRegister" type="text"  required>
+			<br>
+			<br>
+			<label for="inputRegisterContra">Ingrese una contraseña para su correo:</label>
+			<br>
+			<input class="inputRegisterContra" type="text" required>
+			<br>
+			<button class="EnviarR">Registrar</button>
+			<br>
+			<button class="btnCerrarR">Cerrar</button>
+
+		</form>
+    </dialog>
+
+	<dialog class="dialogLogin">
+		<form >
+			<label for="inputLogin">Ingrese su correo:</label>
+			<br>
+			<input class="inputLogin" type="text" required>
+			<br>
+			<br>
+			<label for="inputLoginContra">Ingrese la contraseña de su correo:</label>
+			<br>
+			<input class="inputLoginContra" type="text" required>
+			<br>
+			<button class="EnviarL">Registrarse</button>
+			<br>
+			<button class="btnCerrarL">Cerrar</button>
+			<button class="olvidoContra">Olvido su contraseña?</button>
+		</form>
+    </dialog>
+
+	<dialog class="olvidoContraModal">
+		<form >
+			<label for="inputOlvido">Ingrese su correo:</label>
+			<br>
+			<input class="inputOlvido" type="text" required>
+			<br>
+			<br>
+			<label for="inputOlvidoContra">Cambie su contraseña:</label>
+			<br>
+			<input class="inputOlvidoContra" type="text" required>
+			<br>
+			<br>
+			<button class="changePasword">Cambiar contraseña</button>
+			<button class="btnCerrarOM">Cerrar</button>
+		</form>
+    </dialog>
 	
 	<script type="module" src="./scriptt/index.js"></script>
-
-	<!--<script src="./index.js" type="module"></script>-->
 
 </body>
 </html>
