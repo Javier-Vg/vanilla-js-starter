@@ -1,20 +1,24 @@
-let inputRegister = document.querySelector(".inputRegister");
+import {  postUser} from "./register";
+import { getUser } from "./getUser";
+//import { elementos } from "./creacionElementos";
+
+
 let btnEnvioRegister = document.querySelector(".EnviarR");
 let btnEnvioLogin = document.querySelector(".EnviarL");
 
-registros = JSON.parse(localStorage.getItem("registros")) || [];
-
 //Evento eviar formulario register
-btnEnvioRegister.addEventListener("click", async function() {
+btnEnvioRegister.addEventListener("click", async function(e) {
+  e.preventDefault();
+  let inputUsuario = document.querySelector(".inputUsuario").value;
   let inputRegister = document.querySelector(".inputRegister").value;
   let ContraRegister = document.querySelector(".inputRegisterContra").value;
-  let users = await getTask();
+  let users = await getUser();
   let repetido = 0;
 
   if (inputRegister.trim() && ContraRegister.trim() != "") {
 
     users.forEach(user => {
-      if (user.usuario == inputRegister) {
+      if (user.correo == inputRegister) {
         repetido++;
       }
     });
@@ -23,10 +27,9 @@ btnEnvioRegister.addEventListener("click", async function() {
       alert("Ese correo ya esta registrado");
     }else{
 
-      let pp = [inputRegister,ContraRegister];
-      postTask(pp);
-      //registros.push(pp);
-      //localStorage.setItem("registros", JSON.stringify(registros));
+      let pp = [inputRegister,ContraRegister,inputUsuario];
+      postUser(pp);
+      
     }
 
   }else{
@@ -35,19 +38,23 @@ btnEnvioRegister.addEventListener("click", async function() {
 })
 
 //Evento eviar formulario login
-btnEnvioLogin.addEventListener("click", async function() {
+btnEnvioLogin.addEventListener("click", async function(e) {
+  e.preventDefault()
   let inputLogin = document.querySelector(".inputLogin").value;
   let ContraLogin = document.querySelector(".inputLoginContra").value;
   let encontrado = 0;
 
-  let users = await getTask();
+  let users = await getUser();
 
   if (inputLogin.trim() && ContraLogin.trim() != "") {
     users.forEach(user => {
-      if (user.usuario == inputLogin && user.contra == ContraLogin) {
+      if (user.correo == inputLogin && user.contra == ContraLogin) {
         alert("Se encontro su correo!");
-        //window.location.href = "/src/sesion.html"
         encontrado++;
+        localStorage.setItem("registros", user.id);
+
+        //elementos(user.user,user.correo, user.contra)
+        window.location.href = "./sesion.html";
       }
     });
 
@@ -84,39 +91,7 @@ cerrarL.addEventListener("click", function() {
   modal2.close();
 });
 
-async function getTask() {
 
-  try {
-    const response = await fetch('http://localhost:3000/api/task');
-    const data = await response.json();
-    
-    return data;
-    
-  } catch (error) {
-    alert("Error");
-  }
-};
-
-
-async function postTask(pp) {
-      
-  try {
-      const response = await fetch('http://localhost:3000/api/task', {
-
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          usuario: pp[0],
-          contra: pp[1]
-        })
-      });
-      
-  }catch(error) {
-    alert(error);
-  }
-};
 
 let ModalOlvidoContra = document.querySelector(".olvidoContraModal");
 let btnOlvidoContra = document.querySelector(".olvidoContra");
@@ -133,19 +108,22 @@ btnCloseOlvidoContra.addEventListener("click", function() {
 
 let btnChangePaswor = document.querySelector(".changePasword");
 
-btnChangePaswor.addEventListener("click", async function() {
+btnChangePaswor.addEventListener("click", async function(e) {
+  e.preventDefault()
 
   //Inputs del form de olvidar usuario
-  let users = await getTask();
+  let users = await getUser();
   let input = document.querySelector(".inputOlvido").value;
   let contra = document.querySelector(".inputOlvidoContra").value;
   let array = [];
   let find = false;
-
+  
   if (input.trim() && contra.trim() != ""){
     users.forEach(user => {
-      if (user.usuario == input) {
-        array[user.id,contra]
+      if (user.correo == input) {
+        array.push(user.id)
+        array.push(contra)
+        console.log(array);
         putModificarUser(array);
         find = true;
       }
@@ -159,28 +137,27 @@ btnChangePaswor.addEventListener("click", async function() {
 })
 
 
-
 async function putModificarUser(elemento) {
+
   //En caso de que el input venga vacio, salta un mensaje alert, si no, hace el cambio basandose en los elementos del array.
-  if ((elemento[1]).trim() != "" ) {
+  console.log(elemento);
+  if (elemento[1] != "" ) {
     try {
-      console.log("puttt f");
       const response = await fetch('http://localhost:3000/api/task/'+ elemento[0], {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          task: elemento[1]
+          contra: elemento[1]
         })
       });
       
     }catch(error) {
-      alert("error");
+      alert(error);
     }
   }else{
     alert("Tiene que escribir en la barra de texto para editar su tarea...");
-    
   };
 };
 

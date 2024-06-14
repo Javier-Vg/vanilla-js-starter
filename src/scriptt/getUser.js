@@ -1,5 +1,4 @@
-//Funcion que extrae a la api (json), metodo get:
-async function getTask() {
+async function getUser() {
 
     try {
       const response = await fetch('http://localhost:3000/api/task');
@@ -12,4 +11,4 @@ async function getTask() {
     }
 };
 
-export {getTask}
+export {getUser}
