@@ -1,14 +1,23 @@
 import {  postUser} from "./register";
 import { getUser } from "./getUser";
-//import { elementos } from "./creacionElementos";
 
 
 let btnEnvioRegister = document.querySelector(".EnviarR");
 let btnEnvioLogin = document.querySelector(".EnviarL");
 
+let usuario = "";
+let correo = "";
+let contra = "";
+let registros = [];
+
+
+
+//localStorage.removeItem("registros")
+
 //Evento eviar formulario register
 btnEnvioRegister.addEventListener("click", async function(e) {
   e.preventDefault();
+
   let inputUsuario = document.querySelector(".inputUsuario").value;
   let inputRegister = document.querySelector(".inputRegister").value;
   let ContraRegister = document.querySelector(".inputRegisterContra").value;
@@ -40,6 +49,8 @@ btnEnvioRegister.addEventListener("click", async function(e) {
 //Evento eviar formulario login
 btnEnvioLogin.addEventListener("click", async function(e) {
   e.preventDefault()
+
+  registros = (localStorage.getItem("form")) || [];
   let inputLogin = document.querySelector(".inputLogin").value;
   let ContraLogin = document.querySelector(".inputLoginContra").value;
   let encontrado = 0;
@@ -50,11 +61,19 @@ btnEnvioLogin.addEventListener("click", async function(e) {
     users.forEach(user => {
       if (user.correo == inputLogin && user.contra == ContraLogin) {
         alert("Se encontro su correo!");
+        
         encontrado++;
-        localStorage.setItem("registros", user.id);
+        //Estas 3 es para luego exportarlas al otro archivo:
+        correo = user.correo;
+        contra = user.contra;
+        usuario = user.user;
+        registros.push(correo);
+        registros.push(contra);
+        registros.push(usuario);
+        localStorage.setItem("registros", JSON.stringify(registros));
 
-        //elementos(user.user,user.correo, user.contra)
         window.location.href = "./sesion.html";
+        
       }
     });
 
