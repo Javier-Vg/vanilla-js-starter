@@ -40,6 +40,8 @@ btnEnvioRegister.addEventListener("click", async function(e) {
       postUser(pp);
       
     }
+    alert("Registrado correctamente.")
+    modal1.close();
 
   }else{
     alert("Debe de llenar los espacios!");
@@ -70,7 +72,9 @@ btnEnvioLogin.addEventListener("click", async function(e) {
         registros.push(correo);
         registros.push(contra);
         registros.push(usuario);
+        registros.push(user.id);
         localStorage.setItem("registros", JSON.stringify(registros));
+        localStorage.setItem("id", user.id);
 
         window.location.href = "./sesion.html";
         
