@@ -1,11 +1,11 @@
 // Inserte el código aquí
-import { extraerDatos } from "./agregarDatos";
-import { Recargar } from "./ElementosRecargaPage";
-import { deleteTask } from "./eliminarTask";
-import { putTask } from "./ElementosRecargaPage";
-import { putModificarTask } from "./modificarTask";
-import { filtrar } from "./filtrarTasks";
-import { FiltradoAlternado } from "./filtrarTasks";
+import  extraerDatos  from "./agregarDatos";
+import  {Recargar}  from "./ElementosRecargaPage";
+import deleteTask from "./eliminarTask";
+import {putTask} from "./ElementosRecargaPage";
+import putModificarTask from "./modificarTask";
+import {filtrar} from "./filtrarTasks";
+import {FiltradoAlternado} from "./filtrarTasks";
 
 //FILTRAR POR AREAS DE LAS TAREAS 
 let btnFilter = document.querySelector(".btnFilter");
@@ -55,7 +55,7 @@ agregarBtn.addEventListener("click", function () {
   };
 });
 
-async function reconocerIcono() {
+export async function reconocerIcono() {
   //Esto es para extraer los elementos al refrezcar la pagina
   let array = await Recargar();
   //Ejecuta la funcion que contiene los eventos click
@@ -63,7 +63,7 @@ async function reconocerIcono() {
 };
 
 //Esta funcion contiene todos los eventos que activan el cambio de los elementos y filtrar por tareas:
-function funcionalidad() {
+export function funcionalidad() {
   //Recorre los iconos clickeados  ( img - icono ) del HTML y escoge el clickeado desde la pagina
   let elementoClick = document.querySelectorAll(".icono");
   console.log(elementoClick);
@@ -159,6 +159,6 @@ BtnTerminadas.addEventListener("click" , () => {
 });
 
 
-export {reconocerIcono}
-export {funcionalidad}
+// export {reconocerIcono}
+// export {funcionalidad}
 

@@ -1,8 +1,8 @@
-import { getTask } from "./mostrarDatos";
-import { funcionalidad } from "./index";
+import  getTask  from "./mostrarDatos";
+import  {funcionalidad}  from "./index";
 
 
-async function filtrar(input) {
+export async function filtrar(input) {
     let divTasks = document.querySelector(".grupo");
 
     //Se borra el contenedor de los elementos para dejar solo a los que fueron filtrado, en este caso a los que tienen misma area.
@@ -86,7 +86,7 @@ async function filtrar(input) {
 
 
 //Depende del parametro enviado, se ejecutara ese filtrado de tareas ( terminadas y no terminadas ).
-async function FiltradoAlternado(boleano) {
+export async function FiltradoAlternado(boleano) {
     let divTasks = document.querySelector(".grupo");
     let tasks = await getTask();
     if (boleano == true) {
@@ -241,5 +241,5 @@ async function FiltradoAlternado(boleano) {
 }
 
 //se exportan funciones:
-export {filtrar}
-export {FiltradoAlternado}
+// export {filtrar}
+// export {FiltradoAlternado}

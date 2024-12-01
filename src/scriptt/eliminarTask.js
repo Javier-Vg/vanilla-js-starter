@@ -18,4 +18,4 @@ async function deleteTask(evento) {
     }
 }
 
-export { deleteTask }
+export default deleteTask 

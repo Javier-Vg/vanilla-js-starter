@@ -1,4 +1,4 @@
-import { getTask } from "./mostrarDatos";
+import  getTask  from "./mostrarDatos";
 
 let arrayIconos  = [];
 
@@ -7,7 +7,7 @@ let check = document.querySelector(".contador");
 let divTasks = document.querySelector(".grupo");
 
 //Esta funcion "Recargar" hace que los elementos que estan en la API se agreguen cuando se refrezque la pagina
-async function Recargar() {
+export async function Recargar() {
     divTasks.innerHTML != ""
     //Hace que la pagina borre lo que tenia antes de ser actualizada, y agrega lo que ya tenia en el API
     let tasks = await getTask();
@@ -92,7 +92,7 @@ if(divTasks.textContent != ""){
     p.remove();
 }
 
-async function putTask(evento) {
+export async function putTask(evento) {
     
     //Extraigo el ID desde el evento del la funcion, para despues agregarlo en el getElementId,
     //para luego tomarlos como referencia al agregarlo al HTML con el appendChild
@@ -145,5 +145,5 @@ async function putTask(evento) {
 }
 
 //Se exportan las funciones:
-export {Recargar}
-export { putTask }
+// export {Recargar}
+// export { putTask }

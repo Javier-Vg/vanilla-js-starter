@@ -17,4 +17,4 @@ function extraerDatos() {
         return false;
     }
 };
-export {extraerDatos}
+export default extraerDatos

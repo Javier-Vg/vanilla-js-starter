@@ -1,7 +1,6 @@
-import { extraerDatos } from "./agregarDatos";
+import extraerDatos  from "./agregarDatos";
 
 //Esto hace que agregue un nuevo elemento a la pagina
-
 
 async function Esperar() {
     //Exporta los inputs
@@ -53,4 +52,4 @@ async function Esperar() {
 //Llama a la funcion principal de esta funcion.
 Esperar();
 
-export {elementos}
+// export {elementos}

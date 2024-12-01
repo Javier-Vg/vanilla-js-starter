@@ -23,4 +23,4 @@ async function putModificarTask(elemento) {
   };
 };
 
-export {putModificarTask}
+export default putModificarTask
